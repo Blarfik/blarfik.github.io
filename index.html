@@ -3,78 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blarfik | 3D & Pixel Art</title>
+    <title>Blarfik | 3D & Pixel Artist</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            background-color: #1a1a1a;
-            color: #f4f4f4;
+            background-color: #0d1117; /* Глубокий темный фон */
+            color: #f0f6fc; /* Светлый текст */
         }
-        header {
-            background: #2d2d2d;
-            padding: 2rem 1rem;
-            text-align: center;
-            border-bottom: 3px solid #7289da;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid #30363d;
         }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 1rem;
+        }
+        .logo-text h1 { margin: 0; font-size: 1.5rem; }
+        .logo-text p { margin: 0; font-size: 0.9rem; color: #8b949e; }
+        .nav-links a { color: #f0f6fc; text-decoration: none; margin-left: 2rem; }
+        .nav-links a.active { font-weight: bold; border-bottom: 2px solid #7289da; }
+
         .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
         }
-        h1 { margin: 0; color: #7289da; }
-        .subtitle { font-size: 1.2rem; color: #aaa; }
+        .left-col { flex: 0 0 320px; }
+        .right-col { flex: 1; margin-left: 4rem; }
         
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 2rem;
-        }
-        .card {
-            background: #2d2d2d;
-            border-radius: 8px;
+        .profile-img-container {
+            width: 320px;
+            height: 320px;
+            border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s;
+            border: 3px solid #30363d;
         }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; display: block; image-rendering: pixelated; }
-        .card-info { padding: 1rem; }
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         
-        footer { text-align: center; padding: 2rem; color: #666; }
+        .hero-text h2 { margin-top: 0; font-size: 2.5rem; }
+        .hero-text p { font-size: 1.1rem; line-height: 1.7; color: #c9d1d9; }
+        
+        .social-icons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a { width: 28px; height: 28px; }
+
+        .projects {
+            margin-top: 6rem;
+            text-align: center;
+        }
+        .projects h2 { font-size: 2rem; }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 3rem;
+        }
+        .project-card {
+            background: #161b22;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: left;
+            border: 1px solid #30363d;
+        }
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .project-card-content { padding: 1.5rem; }
+        .project-card-content h3 { margin-top: 0; font-size: 1.2rem; }
+        .project-card-content p { color: #8b949e; font-size: 0.95rem; }
+
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Blarfik</h1>
-    <p class="subtitle">3D Designer & Pixel Artist</p>
+<header class="header">
+    <div class="logo-container">
+        <svg class="logo-icon" fill="#f0f6fc" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
+        <div class="logo-text">
+            <h1>Blarfik</h1>
+            <p>3D Artist & Pixel Creator</p>
+        </div>
+    </div>
+    <div class="nav-links">
+        <a href="#" class="active">Обо мне</a>
+        <a href="#projects">Проекты</a>
+        <a href="#">Контакты</a>
+    </div>
 </header>
 
 <div class="container">
-    <h2>Мои работы</h2>
-    <div class="gallery">
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200" alt="Work 1">
-            <div class="card-info">
-                <h3>3D Модель "Киберпанк"</h3>
-                <p>Blender, Substance Painter</p>
-            </div>
+    <div class="left-col">
+        <div class="profile-img-container">
+            <img src="https://via.placeholder.com/320x320?text=Profile" alt="Blarfik Avatar">
         </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200" alt="Work 2">
-            <div class="card-info">
-                <h3>Пиксельный персонаж</h3>
-                <p>Aseprite, 64x64</p>
-            </div>
+    </div>
+    <div class="right-col">
+        <div class="hero-text">
+            <h2>Привет, я Blarfik 👋</h2>
+            <p>Я 3D-художник и энтузиаст пиксель-арта. Я создаю детализированные миры и персонажей, а также рисую пиксели с душой. </p>
+            <p>Я использую Blender для 3D, Substance Painter для текстур и Aseprite для моих пиксельных работ. </p>
+            <p>Мои работы часто вдохновлены старыми играми и любовью к мелким деталям.</p>
+        </div>
+        
+        <div class="social-icons">
+            <a href="#"><img src="https://via.placeholder.com/28x28?text=YT" alt="Youtube"></a>
+            <a href="#"><img src="https://via.placeholder.com/28x28?text=TG" alt="Telegram"></a>
+            <a href="#"><img src="https://via.placeholder.com/28x28?text=GH" alt="GitHub"></a>
         </div>
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2024 Blarfik. Создано с помощью GitHub Pages.</p>
-</footer>
+<div class="projects" id="projects">
+    <h2>Мои Проекты</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="https://via.placeholder.com/300x180" alt="Work 1">
+            <div class="project-card-content">
+                <h3>Забытый Маяк (3D)</h3>
+                <p>Детализированная сцена в Blender и Eevee.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://via.placeholder.com/300x180" alt="Work 2">
+            <div class="project-card-content">
+                <h3>Киберпанк-Улица (Pixel Art)</h3>
+                <p>Пиксель-арт сцена в Aseprite.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://via.placeholder.com/300x180" alt="Work 3">
+            <div class="project-card-content">
+                <h3>Персонаж (3D)</h3>
+                <p>Низкополигональный персонаж для игры.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
