@@ -18,7 +18,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ШАПКА (ХОТ-БАР) */
+        /* ШАПКА */
         .header-wrapper {
             display: flex;
             justify-content: center;
@@ -44,23 +44,15 @@
         }
 
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        
-        /* 6. Обновленный контейнер для иконки-молнии */
         .logo-icon-wrap {
             width: 40px; height: 40px;
             display: flex; align-items: center; justify-content: center;
         }
-        /* Сама иконка (из твоего фото) */
         .logo-icon { width: 30px; height: 30px; fill: none; stroke: #3b82f6; stroke-width: 1.5; }
 
-        /* 7. Ник Blarfik - Шрифтом Bubble */
         .logo-text h1 { 
-            margin: 0; 
-            font-size: 2.2rem; 
-            font-weight: 400; /* Для этого шрифта не нужно strong */
-            letter-spacing: -0.5px;
-            font-family: 'Bubblegum Sans', cursive; /* Применяем шрифт */
-            color: #f0f6fc;
+            margin: 0; font-size: 2.2rem; font-weight: 400;
+            font-family: 'Bubblegum Sans', cursive; color: #f0f6fc;
         }
         .logo-text p { margin: 0; font-size: 0.85rem; color: #8b949e; }
 
@@ -79,31 +71,49 @@
         /* ОСНОВНОЙ БЛОК */
         .main-content { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
         
-        .hero-section { display: flex; gap: 4rem; align-items: flex-start; margin-top: 2rem; padding-bottom: 4rem; }
+        .hero-section {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+            margin-top: 2rem;
+            padding-bottom: 2rem; /* Уменьшили отступ, так как аватарка выросла */
+        }
         
-        /* 3. Увеличиваем колонку для аватарки */
-        .left-col { flex: 0 0 380px; } 
+        /* ГИГАНТСКАЯ АВАТАРКА (Уровень с "Писать только по важным делам") */
+        .left-col {
+            flex: 0 0 450px; /* Увеличили колонку */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        } 
         
-        /* 3. Увеличиваем саму аватарку */
         .profile-img-container {
-            width: 380px; height: 380px; border-radius: 35px;
+            width: 450px; height: 450px; /* Сама аватарка стала больше */
+            border-radius: 40px;
             overflow: hidden; border: 1px solid #30363d;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
         .profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        .right-col { flex: 1; }
+        .right-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 450px; /* Высота правой колонки равна высоте аватарки */
+            justify-content: space-between; /* Текст сверху, кнопки снизу */
+        }
 
         /* ТЕКСТОВАЯ РАМКА */
         .hero-text-box {
             background: rgba(22, 27, 34, 0.5);
             border: 1px solid #30363d;
-            padding: 2.5rem; border-radius: 28px; margin-bottom: 2rem;
+            padding: 2.5rem; border-radius: 28px;
+            margin-bottom: 1.5rem; /* Немного уменьшили отступ */
         }
         .hero-text-box h2 { margin: 0 0 1.2rem 0; font-size: 2.4rem; }
         .hero-text-box p { font-size: 1.15rem; line-height: 1.7; color: #c9d1d9; margin: 0; }
 
-        /* ЦВЕТНЫЕ АКЦЕНТЫ */
+        /* Акценты */
         .accent-green { color: #87b926; font-weight: 600; }
         .accent-mc { color: #55ff55; font-weight: 600; }
         .accent-orange { color: #ff9a00; font-weight: 600; }
@@ -111,8 +121,8 @@
         .accent-red { color: #FF0000; font-weight: 600; }
         .accent-purple { color: #a970ff; font-weight: 600; }
 
-        /* КНОПКИ СОЦСЕТЕЙ */
-        .social-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 2rem; }
+        /* Соцсети */
+        .social-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1.5rem; }
         .social-item {
             width: 52px; height: 52px; background: #161b22;
             border: 1px solid #30363d; border-radius: 14px;
@@ -122,7 +132,13 @@
         .social-item:hover { transform: translateY(-5px); border-color: #7289da; background: #1c2128; }
         .social-item img { width: 26px; height: 26px; }
 
-        /* КНОПКА (Общие стили для синих кнопок) */
+        /* КНОПКИ РЯДОМ */
+        .button-group {
+            display: flex;
+            gap: 15px; /* Отступ между кнопками */
+            align-items: center;
+        }
+
         .btn-blue {
             display: inline-flex; align-items: center; gap: 12px;
             background: #3b82f6; color: white; text-decoration: none;
@@ -135,24 +151,23 @@
 
         .disclaimer { font-size: 0.8rem; color: #484f58; margin-top: 15px; }
 
-        /* 4. Полоска-разделитель */
+        /* Разделитель */
         .section-divider {
             height: 1px;
             background: linear-gradient(90deg, rgba(48, 54, 61, 0) 0%, rgba(48, 54, 61, 1) 50%, rgba(48, 54, 61, 0) 100%);
-            margin: 2rem 0;
+            margin: 3rem 0; /* Увеличили отступ */
         }
 
-        /* 8. ПРОЕКТЫ (НОВАЯ СЕТКА) */
-        #projects { padding: 4rem 0; text-align: center; }
+        /* ПРОЕКТЫ (ПОЧИНЕННАЯ СЕТКА) */
+        #projects { padding: 2rem 0 4rem; text-align: center; }
         .projects-title { font-size: 2.2rem; margin-bottom: 3rem; font-weight: 600; }
         
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Адаптивная сетка */
             gap: 30px;
         }
         
-        /* Стили карточки проекта (как на фото 5) */
         .project-card {
             background: #161b22;
             border: 1px solid #30363d;
@@ -165,15 +180,11 @@
         }
         .project-card:hover { transform: translateY(-5px); border-color: #7289da; }
         
-        .project-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+        .project-img { width: 100%; height: 200px; object-fit: cover; }
         
         .project-info {
             padding: 20px;
-            flex-grow: 1; /* Чтобы кнопка всегда была внизу */
+            flex-grow: 1; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -182,28 +193,14 @@
         .project-text h3 { margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 600; }
         .project-text p { margin: 0; font-size: 0.95rem; color: #8b949e; line-height: 1.5; margin-bottom: 20px; }
         
-        /* Кнопка "Подробнее" внутри карточки */
         .btn-card {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            color: #f0f6fc;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 12px;
+            display: block; width: 100%; text-align: center;
+            background: rgba(255, 255, 255, 0.05); color: #f0f6fc;
+            text-decoration: none; padding: 12px; border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: 0.2s;
+            font-size: 0.9rem; font-weight: 600; transition: 0.2s;
         }
         .btn-card:hover { background: rgba(255, 255, 255, 0.1); }
-
-        /* ФУТЕР И НИЖНЯЯ КНОПКА */
-        .footer-section {
-            margin: 4rem 0 4rem; text-align: center;
-            padding-top: 4rem; 
-        }
         
     </style>
 </head>
@@ -223,7 +220,6 @@
             <nav class="nav-links">
                 <a href="#" class="lang-text" data-ru="Обо мне" data-en="About">Обо мне</a>
                 <a href="#projects" class="lang-text" data-ru="Проекты" data-en="Projects">Проекты</a>
-                <a href="#support" class="lang-text" data-ru="Поддержать" data-en="Support">Поддержать</a>
                 <div class="lang-switch" onclick="toggleLanguage()"><span id="lang-btn">EN</span></div>
             </nav>
         </header>
@@ -233,7 +229,7 @@
         <section class="hero-section">
             <div class="left-col">
                 <div class="profile-img-container">
-                    <img src="https://via.placeholder.com/380x380?text=Profile" alt="Blarfik Avatar">
+                    <img src="YOUR_AVATAR.png" alt="Blarfik Avatar">
                 </div>
             </div>
             <div class="right-col">
@@ -260,10 +256,18 @@
                     <a href="#" class="social-item" title="NameMC"><img src="https://namemc.com/favicon.ico" alt="MC"></a>
                 </div>
 
-                <a href="mailto:your@mail.com" class="btn-blue">
-                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <span class="lang-text" data-ru="Связаться со мной" data-en="Contact Me">Связаться со мной</span>
-                </a>
+                <div class="button-group">
+                    <a href="mailto:your@mail.com" class="btn-blue">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span class="lang-text" data-ru="Связаться со мной" data-en="Contact Me">Связаться со мной</span>
+                    </a>
+                    
+                    <a href="#" class="btn-blue">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span class="lang-text" data-ru="Поддержать меня" data-en="Support Me">Поддержать меня</span>
+                    </a>
+                </div>
+
                 <p class="disclaimer lang-text" 
                    data-ru="Писать только по важным вопросам, тупые сообщения будут игнорироваться" 
                    data-en="Business inquiries only, casual messages will be ignored">
@@ -279,7 +283,7 @@
             
             <div class="project-grid">
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200?text=Altunet" alt="Altunet" class="project-img">
+                    <img src="altunet.jpg" alt="Altunet" class="project-img">
                     <div class="project-info">
                         <div class="project-text">
                             <h3>Altunet</h3>
@@ -289,12 +293,12 @@
                                Интернет для настоящих Альтушек
                             </p>
                         </div>
-                        <a href="ССЫЛКА_НА_САЙТ_ПРОЕКТОВ" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        <a href="#" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200?text=MiDoNoKi" alt="MiDoNoKi" class="project-img">
+                    <img src="midonoki.jpg" alt="MiDoNoKi" class="project-img">
                     <div class="project-info">
                         <div class="project-text">
                             <h3>MiDoNoKi</h3>
@@ -304,12 +308,12 @@
                                Озвучка с теми самыми голосами!
                             </p>
                         </div>
-                        <a href="ССЫЛКА_НА_САЙТ_ПРОЕКТОВ" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        <a href="#" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200?text=SOON" alt="Soon" class="project-img">
+                    <img src="soon.jpg" alt="Soon" class="project-img">
                     <div class="project-info">
                         <div class="project-text">
                             <h3>???</h3>
@@ -319,21 +323,13 @@
                                СКОРО
                             </p>
                         </div>
-                        <a href="ССЫЛКА_НА_САЙТ_ПРОЕКТОВ" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        <a href="#" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="section-divider"></div>
-
-        <section id="support" class="footer-section">
-            <a href="#" class="btn-blue">
-                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                <span class="lang-text" data-ru="Поддержать меня" data-en="Support Me">Поддержать меня</span>
-            </a>
-        </section>
-    </main>
+        </main>
 
     <script>
         let currentLang = 'ru';
