@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blarfik | 3D & Pixel Art</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+        header {
+            background: #2d2d2d;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid #7289da;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1 { margin: 0; color: #7289da; }
+        .subtitle { font-size: 1.2rem; color: #aaa; }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        .card {
+            background: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; display: block; image-rendering: pixelated; }
+        .card-info { padding: 1rem; }
+        
+        footer { text-align: center; padding: 2rem; color: #666; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Blarfik</h1>
+    <p class="subtitle">3D Designer & Pixel Artist</p>
+</header>
+
+<div class="container">
+    <h2>Мои работы</h2>
+    <div class="gallery">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Work 1">
+            <div class="card-info">
+                <h3>3D Модель "Киберпанк"</h3>
+                <p>Blender, Substance Painter</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Work 2">
+            <div class="card-info">
+                <h3>Пиксельный персонаж</h3>
+                <p>Aseprite, 64x64</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Blarfik. Создано с помощью GitHub Pages.</p>
+</footer>
+
+</body>
+</html>
