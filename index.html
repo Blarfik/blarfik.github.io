@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blarfik | UTISqd Member</title>
+    <title>Blarfik | 3D Artist & Pixel Creator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
     
@@ -11,7 +11,8 @@
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            background: radial-gradient(circle at center, #110118 0%, #000000 100%);
+            /* 3. ОБНОВЛЕННЫЙ ГРАДИЕНТ ФОНА: Два источника света */
+            background: linear-gradient(135deg, #160a22 0%, #000000 50%, #0a0e16 100%);
             color: #f0f6fc;
             min-height: 100vh;
             padding-top: 100px;
@@ -32,19 +33,7 @@
         }
         .logo-container { display: flex; align-items: center; gap: 15px; }
         .logo-icon-wrap { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
-        
-        /* 4. СВЕЧЕНИЕ МОЛНИИ (НЕОНОВЫЙ ЭФФЕКТ) */
-        .logo-icon { 
-            width: 30px; height: 30px; 
-            fill: #3b82f6; /* Основной цвет молнии */
-            filter: drop-shadow(0 0 5px #3b82f6) drop-shadow(0 0 10px #3b82f6); /* Два слоя свечения */
-            animation: neon-pulse 1.5s infinite alternate; /* Анимация пульсации */
-        }
-        @keyframes neon-pulse {
-            from { filter: drop-shadow(0 0 2px #3b82f6) drop-shadow(0 0 5px #3b82f6); }
-            to { filter: drop-shadow(0 0 8px #3b82f6) drop-shadow(0 0 15px #3b82f6); }
-        }
-
+        .logo-icon { width: 30px; height: 30px; fill: none; stroke: #3b82f6; stroke-width: 1.5; }
         .logo-text h1 { margin: 0; font-size: 2.2rem; font-weight: 400; font-family: 'Bubblegum Sans', cursive; color: #f0f6fc; }
         .logo-text p { margin: 0; font-size: 0.85rem; color: #8b949e; }
         .nav-links { display: flex; align-items: center; gap: 2rem; }
@@ -75,22 +64,12 @@
         }
         .hero-text-box h2 { margin: 0 0 1.2rem 0; font-size: 2.4rem; }
         .hero-text-box p { font-size: 1.15rem; line-height: 1.7; color: #c9d1d9; margin: 0; }
-
-        /* 1. ЦВЕТНЫЕ АКЦЕНТЫ (НОВЫЙ ТЕКСТ) */
-        .accent-utisqd { color: #ffff00; font-weight: 600; } /* Желтый */
-        .accent-telegram { color: #24A1DE; font-weight: 600; } /* Голубой */
-        .accent-youtube { color: #FF0000; font-weight: 600; } /* Красный */
-        .accent-twitch { color: #9146ff; font-weight: 600; } /* Фиолетовый */
-
-        /* 1. РАДУЖНЫЙ ГРАДИЕНТНЫЙ ТЕКСТ */
-        .rainbow-text {
-            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
-            display: inline-block;
-        }
+        .accent-green { color: #87b926; font-weight: 600; }
+        .accent-mc { color: #55ff55; font-weight: 600; }
+        .accent-orange { color: #ff9a00; font-weight: 600; }
+        .accent-blue { color: #24A1DE; font-weight: 600; }
+        .accent-red { color: #FF0000; font-weight: 600; }
+        .accent-purple { color: #a970ff; font-weight: 600; }
 
         /* Соцсети */
         .social-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1.5rem; }
@@ -125,43 +104,52 @@
         /* ПРОЕКТЫ */
         #projects { padding: 2rem 0 4rem; text-align: center; }
         .projects-title { font-size: 2.2rem; margin-bottom: 3rem; font-weight: 600; }
-        .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Стабильные 3 колонки */
+            gap: 30px;
+            align-items: stretch; /* Карточки одной высоты */
+        }
+        
         .project-card {
             background: #161b22; border: 1px solid #30363d;
             border-radius: 20px; overflow: hidden; text-align: left;
-            transition: 0.3s; display: flex; flex-direction: column;
+            transition: 0.3s;
+            display: flex; flex-direction: column; /* Вертикальная сетка внутри карточки */
+            height: 100%; /* Карточка занимает всю высоту сетки */
         }
         .project-card:hover { transform: translateY(-5px); border-color: #7289da; }
+        
         .project-img { width: 100%; height: 200px; object-fit: cover; }
-       .project-info { 
-    padding: 20px; 
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-}
+        
+        /* Основной блок информации в карточке */
+        .project-info {
+            padding: 20px;
+            display: flex; flex-direction: column;
+            flex-grow: 1; /* Этот блок занимает все свободное место */
+        }
+        
+        /* Блок текста: заголовок и описание */
         .project-text {
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-}
+            flex-grow: 1; /* Заставляет описание проекта занимать все место до кнопки */
+            margin-bottom: 20px;
+        }
         .project-text h3 { margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 600; }
-        .project-text p { margin: 0; font-size: 0.95rem; color: #8b949e; line-height: 1.5; margin-bottom: 20px; }
+        .project-text p { margin: 0; font-size: 0.95rem; color: #8b949e; line-height: 1.5; }
+        
+        /* 1. ИСПРАВЛЕННАЯ КНОПКА ПОДРОБНЕЕ: Приклеена к низу */
+        .btn-card-container {
+            margin-top: auto; /* Прижимает кнопку к нижней границе родителя (.project-info) */
+        }
         .btn-card {
-    display: block; 
-    width: 100%; 
-    text-align: center;
-    background: rgba(255, 255, 255, 0.05); 
-    color: #f0f6fc;
-    text-decoration: none; 
-    padding: 12px; 
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem; 
-    font-weight: 600; 
-    transition: 0.2s;
-    margin-top: auto; /* Это прижмет кнопку к самому низу */
-}
+            display: block; width: 100%; text-align: center;
+            background: rgba(255, 255, 255, 0.05); color: #f0f6fc;
+            text-decoration: none; padding: 12px; border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem; font-weight: 600; transition: 0.2s;
+            box-sizing: border-box; /* Гарантирует правильный отступ внутри */
+        }
         .btn-card:hover { background: rgba(255, 255, 255, 0.1); }
         
     </style>
@@ -172,11 +160,11 @@
         <header class="header">
             <div class="logo-container">
                 <div class="logo-icon-wrap">
-                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg>
+                    <svg class="logo-icon" viewBox="0 0 24 24"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg>
                 </div>
                 <div class="logo-text">
                     <h1>Blarfik</h1>
-                    <p class="lang-text" data-ru="Крутой Хайпарик & UTISqd" data-en="Cool Hyper & UTISqd Member">Крутой Хайпарик & UTISqd</p>
+                    <p class="lang-text" data-ru="3D Художник и Контент мейкер" data-en="3D Artist & Content Creator">3D Художник и Контент мейкер</p>
                 </div>
             </div>
             <nav class="nav-links">
@@ -197,13 +185,11 @@
             <div class="right-col">
                 <div class="hero-text-box">
                     <h2 class="lang-text" data-ru="Привет я Blarfik 👋" data-en="Hi, I'm Blarfik 👋">Привет я Blarfik 👋</h2>
-                    
                     <p class="lang-text ru">
-                        Я крутой хайпарик который занимается в основном бесполезными вещами, участник <span class="accent-utisqd">UTISqd</span>. Я делаю лоуполи модели, майнкрафт анимации, рисую пиксели, монтирую в <span class="rainbow-text">ДАВИНЧИ РЕЗОЛЬФ</span>, ну и всякими другими приколами занимаюсь. Делюсь творчеством и жизнью в <span class="accent-telegram">Telegram</span> и планирую вести канал на <span class="accent-youtube">YouTube</span>. Иногда стримлю на <span class="accent-twitch">Twitch</span>.
+                        Я 3D художник и контент креатор работающий в <span class="accent-green">TeaTeam</span>. Специализируюсь на создании визуального контента по <span class="accent-mc">Minecraft</span> в <span class="accent-orange">Blender</span>. Я делаю риги, рендеры, анимации и другие приколы. Делюсь творчеством и жизнью в <span class="accent-blue">Telegram</span>, а анимациями на <span class="accent-red">YouTube</span>. Иногда стримлю на <span class="accent-purple">Twitch</span>.
                     </p>
-                    
                     <p class="lang-text en" style="display:none;">
-                        I am a cool hype-person who mostly does useless things, member of <span class="accent-utisqd">UTISqd</span>. I make low-poly models, Minecraft animations, draw pixels, edit in <span class="rainbow-text">DAVINCI RESOLVE</span>, and do various other fun stuff. I share my art and life on <span class="accent-telegram">Telegram</span> and plan to run a channel on <span class="accent-youtube">YouTube</span>. Sometimes I stream on <span class="accent-twitch">Twitch</span>.
+                        I am a 3D artist and content creator working at <span class="accent-green">TeaTeam</span>. I specialize in creating visual <span class="accent-mc">Minecraft</span> content in <span class="accent-orange">Blender</span>. I make rigs, renders, animations, and other cool stuff. I share my art and life on <span class="accent-blue">Telegram</span>, and animations on <span class="accent-red">YouTube</span>. Sometimes I stream on <span class="accent-purple">Twitch</span>.
                     </p>
                 </div>
                 <div class="social-grid">
@@ -211,9 +197,7 @@
                     <a href="ССЫЛКА_TELEGRAM" class="social-item" title="Telegram"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG"></a>
                     <a href="ССЫЛКА_TWITCH" class="social-item" title="Twitch"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968819.png" alt="TW"></a>
                     <a href="ССЫЛКА_X" class="social-item" title="Twitter"><img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X"></a>
-                    
-                    <a href="ССЫЛКА_MODRINTH" class="social-item" title="Modrinth"><img src="https://cdn-icons-png.freepik.com/256/11545/11545645.png" alt="MD"></a>
-                    
+                    <a href="ССЫЛКА_MODRINTH" class="social-item" title="Modrinth"><img src="https://modrinth.com/assets/modrinth-icon.svg" alt="MD"></a>
                     <a href="ССЫЛКА_GITHUB" class="social-item" title="GitHub"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GH"></a>
                     <a href="ССЫЛКА_TIKTOK" class="social-item" title="TikTok"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TT"></a>
                     <a href="ССЫЛКА_NAMEMC" class="social-item" title="NameMC"><img src="https://namemc.com/favicon.ico" alt="MC"></a>
@@ -240,35 +224,56 @@
 
         <section id="projects">
             <h2 class="projects-title lang-text" data-ru="Мои Проекты" data-en="My Projects">Мои Проекты</h2>
+            
             <div class="project-grid">
                 <div class="project-card">
                     <img src="altunet.jpg" alt="Altunet" class="project-img">
                     <div class="project-info">
                         <div class="project-text">
                             <h3>Altunet</h3>
-                            <p class="lang-text" data-ru="Интернет для настоящих Альтушек" data-en="Internet for real Altushkas">Интернет для настоящих Альтушек</p>
+                            <p class="lang-text" 
+                               data-ru="Интернет для настоящих Альтушек" 
+                               data-en="Internet for real Altushkas">
+                               Интернет для настоящих Альтушек
+                            </p>
                         </div>
-                        <a href="#" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        <div class="btn-card-container">
+                            <a href="ССЫЛКА_ПРОЕКТ_1" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="project-card">
                     <img src="midonoki.jpg" alt="MiDoNoKi" class="project-img">
                     <div class="project-info">
                         <div class="project-text">
                             <h3>MiDoNoKi</h3>
-                            <p class="lang-text" data-ru="Озвучка с теми самыми голосами!" data-en="Dubbing with those very voices!">Озвучка с теми самыми голосами!</p>
+                            <p class="lang-text" 
+                               data-ru="Озвучка с теми самыми голосами!" 
+                               data-en="Dubbing with those very voices!">
+                               Озвучка с теми самыми голосами!
+                            </p>
                         </div>
-                        <a href="#" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        <div class="btn-card-container">
+                            <a href="ССЫЛКА_ПРОЕКТ_2" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="project-card">
                     <img src="soon.jpg" alt="Soon" class="project-img">
                     <div class="project-info">
                         <div class="project-text">
                             <h3>???</h3>
-                            <p class="lang-text" data-ru="СКОРО" data-en="SOON">СКОРО</p>
+                            <p class="lang-text" 
+                               data-ru="СКОРО" 
+                               data-en="SOON">
+                               СКОРО
+                            </p>
                         </div>
-                        <a href="#" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        <div class="btn-card-container">
+                            <a href="#" class="btn-card lang-text" data-ru="Подробнее" data-en="More Info">Подробнее</a>
+                        </div>
                     </div>
                 </div>
             </div>
