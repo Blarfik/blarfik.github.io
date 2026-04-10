@@ -4,50 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blarfik | 3D & Pixel Artist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Основные стили страницы */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            background-color: #0d1117; /* Глубокий темный фон */
-            color: #f0f6fc; /* Светлый текст */
+            /* 1. ГРАДИЕНТНЫЙ ФОН: Черно-фиолетовый */
+            background: radial-gradient(circle at center, #110118 0%, #000000 100%);
+            color: #f0f6fc;
+            min-height: 100vh;
         }
+
+        /* 2. СТИЛИ ДЛЯ ВЕРХНЕГО ХОТ-БАРА (HEADER) */
+        .header-wrapper {
+            /* Центрирование контейнера шапки */
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0; /* Отступ сверху */
+        }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 3rem;
-            border-bottom: 1px solid #30363d;
+            /* Ширина хот-бара */
+            width: 90%;
+            max-width: 1200px;
+            /* Стили, как на скриншоте (image_2.png) */
+            padding: 10px 24px;
+            background-color: rgba(13, 17, 23, 0.8); /* Полупрозрачный фон */
+            backdrop-filter: blur(10px); /* Эффект размытия */
+            border-radius: 16px; /* Округлые края */
+            border: 1px solid #30363d; /* 3. ОБВОДКА */
         }
+
         .logo-container {
             display: flex;
             align-items: center;
+            gap: 12px;
         }
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            margin-right: 1rem;
-        }
-        .logo-text h1 { margin: 0; font-size: 1.5rem; }
-        .logo-text p { margin: 0; font-size: 0.9rem; color: #8b949e; }
-        .nav-links a { color: #f0f6fc; text-decoration: none; margin-left: 2rem; }
-        .nav-links a.active { font-weight: bold; border-bottom: 2px solid #7289da; }
 
-        .container {
+        .logo-icon-wrap {
+            width: 36px;
+            height: 36px;
+            background-color: #161b22;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #30363d;
+        }
+
+        /* Иконка-молния, как в примере */
+        .logo-icon {
+            width: 20px;
+            height: 20px;
+            fill: #7289da; /* Фиолетовый акцент */
+        }
+
+        .logo-text h1 { 
+            margin: 0; 
+            font-size: 1.2rem; 
+            font-weight: 600;
+        }
+        .logo-text p { 
+            margin: 0; 
+            font-size: 0.8rem; 
+            color: #8b949e; 
+        }
+
+        /* Навигация */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a { 
+            color: #f0f6fc; 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        
+        .nav-links a:hover { 
+            opacity: 1;
+        }
+
+        /* Кнопка переключения языка */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #161b22;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #30363d;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .lang-icon {
+            width: 14px;
+            height: 14px;
+            fill: #8b949e;
+        }
+
+        /* ОСТАЛЬНОЕ СОДЕРЖИМОЕ (Hero и Проекты) */
+        .main-content {
             max-width: 1000px;
             margin: 4rem auto;
             padding: 0 2rem;
+        }
+
+        .hero-section {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6rem;
         }
+
         .left-col { flex: 0 0 320px; }
         .right-col { flex: 1; margin-left: 4rem; }
         
         .profile-img-container {
             width: 320px;
             height: 320px;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
             border: 3px solid #30363d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .profile-img-container img {
             width: 100%;
@@ -55,110 +142,123 @@
             object-fit: cover;
         }
         
-        .hero-text h2 { margin-top: 0; font-size: 2.5rem; }
-        .hero-text p { font-size: 1.1rem; line-height: 1.7; color: #c9d1d9; }
+        .hero-text h2 { margin-top: 0; font-size: 2.8rem; font-weight: 600; }
+        .hero-text p { font-size: 1.15rem; line-height: 1.8; color: #c9d1d9; }
         
         .social-icons {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             display: flex;
-            gap: 15px;
+            gap: 18px;
         }
-        .social-icons a { width: 28px; height: 28px; }
+        .social-icons a { width: 32px; height: 32px; opacity: 0.7; transition: opacity 0.2s;}
+        .social-icons a:hover { opacity: 1; }
 
         .projects {
-            margin-top: 6rem;
             text-align: center;
         }
-        .projects h2 { font-size: 2rem; }
+        .projects h2 { font-size: 2rem; margin-bottom: 3rem; }
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 3rem;
         }
         .project-card {
-            background: #161b22;
-            border-radius: 12px;
+            background: rgba(22, 27, 34, 0.5);
+            border-radius: 16px;
             overflow: hidden;
             text-align: left;
             border: 1px solid #30363d;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #7289da;
         }
         .project-card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
         }
         .project-card-content { padding: 1.5rem; }
-        .project-card-content h3 { margin-top: 0; font-size: 1.2rem; }
-        .project-card-content p { color: #8b949e; font-size: 0.95rem; }
+        .project-card-content h3 { margin-top: 0; font-size: 1.25rem; font-weight: 600; }
+        .project-card-content p { color: #8b949e; font-size: 0.95rem; line-height: 1.5; }
 
     </style>
 </head>
 <body>
 
-<header class="header">
-    <div class="logo-container">
-        <svg class="logo-icon" fill="#f0f6fc" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
-        <div class="logo-text">
-            <h1>Blarfik</h1>
-            <p>3D Artist & Pixel Creator</p>
-        </div>
+    <div class="header-wrapper">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-icon-wrap">
+                    <svg class="logo-icon" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/></svg>
+                </div>
+                <div class="logo-text">
+                    <h1>Blarfik</h1>
+                    <p>3D Дизайнер и Пиксель-арт художник</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#about">Обо мне</a>
+                <a href="#projects">Проекты</a>
+                <a href="#contact">Контакты</a>
+                <div class="lang-switch">
+                    <svg class="lang-icon" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 15a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/><path d="M3.65 11.15a1 1 0 0 1-1.3-1.5l2-1.7a1 1 0 1 1 1.3 1.5l-2 1.7zm8.7-6.3a1 1 0 1 1 1.3 1.5l-2 1.7a1 1 0 1 1-1.3-1.5l2-1.7z"/></svg>
+                    <span>RU</span>
+                </div>
+            </div>
+        </header>
     </div>
-    <div class="nav-links">
-        <a href="#" class="active">Обо мне</a>
-        <a href="#projects">Проекты</a>
-        <a href="#">Контакты</a>
-    </div>
-</header>
 
-<div class="container">
-    <div class="left-col">
-        <div class="profile-img-container">
-            <img src="https://via.placeholder.com/320x320?text=Profile" alt="Blarfik Avatar">
-        </div>
-    </div>
-    <div class="right-col">
-        <div class="hero-text">
-            <h2>Привет, я Blarfik 👋</h2>
-            <p>Я 3D-художник и энтузиаст пиксель-арта. Я создаю детализированные миры и персонажей, а также рисую пиксели с душой. </p>
-            <p>Я использую Blender для 3D, Substance Painter для текстур и Aseprite для моих пиксельных работ. </p>
-            <p>Мои работы часто вдохновлены старыми играми и любовью к мелким деталям.</p>
-        </div>
-        
-        <div class="social-icons">
-            <a href="#"><img src="https://via.placeholder.com/28x28?text=YT" alt="Youtube"></a>
-            <a href="#"><img src="https://via.placeholder.com/28x28?text=TG" alt="Telegram"></a>
-            <a href="#"><img src="https://via.placeholder.com/28x28?text=GH" alt="GitHub"></a>
-        </div>
-    </div>
-</div>
+    <main class="main-content">
+        <section id="about" class="hero-section">
+            <div class="left-col">
+                <div class="profile-img-container">
+                    <img src="https://via.placeholder.com/320x320?text=Your+Avatar" alt="Blarfik Avatar">
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="hero-text">
+                    <h2>Привет, я Blarfik 👋</h2>
+                    <p>Я создаю детализированные 3D-миры и персонажей, а также рисую пиксели с душой. </p>
+                    <p>Моя страсть — сочетать ретро-эстетику с современными технологиями. Основные инструменты: Blender, Substance Painter и Aseprite.</p>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#"><img src="https://via.placeholder.com/32x32?text=AS" alt="ArtStation"></a>
+                    <a href="#"><img src="https://via.placeholder.com/32x32?text=TG" alt="Telegram"></a>
+                    <a href="#"><img src="https://via.placeholder.com/32x32?text=GH" alt="GitHub"></a>
+                </div>
+            </div>
+        </section>
 
-<div class="projects" id="projects">
-    <h2>Мои Проекты</h2>
-    <div class="project-grid">
-        <div class="project-card">
-            <img src="https://via.placeholder.com/300x180" alt="Work 1">
-            <div class="project-card-content">
-                <h3>Забытый Маяк (3D)</h3>
-                <p>Детализированная сцена в Blender и Eevee.</p>
+        <section id="projects" class="projects">
+            <h2>Мои Проекты</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x250?text=Project+1" alt="Project 1">
+                    <div class="project-card-content">
+                        <h3>Забытый Маяк (3D)</h3>
+                        <p>Атмосферная низкополигональная сцена, созданная в Blender.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x250?text=Project+2" alt="Project 2">
+                    <div class="project-card-content">
+                        <h3>Киберпанк Улица (Pixel Art)</h3>
+                        <p>Детализированная пиксель-арт сцена, вдохновленная ретро-футуризмом.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x250?text=Project+3" alt="Project 3">
+                    <div class="project-card-content">
+                        <h3>Главный Персонаж (3D)</h3>
+                        <p>Модель персонажа для будущей игры.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="project-card">
-            <img src="https://via.placeholder.com/300x180" alt="Work 2">
-            <div class="project-card-content">
-                <h3>Киберпанк-Улица (Pixel Art)</h3>
-                <p>Пиксель-арт сцена в Aseprite.</p>
-            </div>
-        </div>
-        <div class="project-card">
-            <img src="https://via.placeholder.com/300x180" alt="Work 3">
-            <div class="project-card-content">
-                <h3>Персонаж (3D)</h3>
-                <p>Низкополигональный персонаж для игры.</p>
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
+    </main>
 
 </body>
 </html>
