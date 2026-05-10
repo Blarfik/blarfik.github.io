@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Правила</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="brand"><img src="https://via.placeholder.com/32" alt="Logo"> ТвойНик</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="rules.html" class="active">Правила</a></li>
+                <li><a href="fun.html">Приколы</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle">☀️</button>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Правила чата</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-target="twitch-rules">Twitch</button>
+            <button class="tab-btn" data-target="discord-rules">Discord</button>
+            <button class="tab-btn" data-target="telegram-rules">Telegram</button>
+        </div>
+
+        <div id="twitch-rules" class="tab-content active">
+            <p style="margin-bottom: 15px; color: var(--text-muted);">Данные правила распространяются на весь контент...</p>
+            <ul>
+                <li>Запрещён спам, флуд одним сообщением.</li>
+                <li>Запрещен пиар, реклама своих проектов.</li>
+                <li>Используйте в чате только русский или английский язык.</li>
+                <li>Запрещена публикация шокирующего контента.</li>
+            </ul>
+        </div>
+
+        <div id="discord-rules" class="tab-content">
+            <ul>
+                <li>Уважайте других участников сервера.</li>
+                <li>Не тегайте администрацию без веской причины.</li>
+            </ul>
+        </div>
+
+        <div id="telegram-rules" class="tab-content">
+            <ul>
+                <li>Без политики и оскорблений в комментариях.</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
